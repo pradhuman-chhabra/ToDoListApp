@@ -10,7 +10,7 @@ export const ToDos = (props) => {
       {/* my-3 gives it a margin */}
       {/* <ToDoItem todo={props.todos[0]}/> */}
       {/* Instead of providing one todo like the above one we will traverse it using loop using the map function */}
-      {props.todos.map((todo)=>{
+      {props.todos.length ===0?"Nothing to display":props.todos.map((todo)=>{
         return(
           <>
           {/* <> Wrapping things inside can return more than one element </> */}

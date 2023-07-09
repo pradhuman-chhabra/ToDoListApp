@@ -4,13 +4,26 @@ import Header from "./myComponenets/Header";
 import { ToDos } from "./myComponenets/ToDos";
 import { Footer } from "./myComponenets/Footer";
 // since this is not ecport default function then its inside curly braces
+import { useState } from "react";
 
 function App() {
   const onDelete = (todo) => {
     console.log("i am on delete of todo", todo);
+    // Deleteing this way does not work in react
+    // let index = todos.indexOf(todo);
+    // todos.splice(index, 1);
+    // In react we will delete like this
+
+    setTodos(
+      todos.filter((e) => {
+        return e !== todo;
+      })
+    );
   };
   // i'll make an object of all my todos and i'll make an array of all the todos
-  let todos = [
+  // let todos=[item1,item2,item3] instead of using this i'll use useState hook to store the array
+  // we are using the use state hook const [todos,setTodos]=useState([item 1, item 2,item 3])
+  const [todos, setTodos] = useState([
     {
       sno: 1,
       title: "you need to go to the market",
@@ -26,7 +39,7 @@ function App() {
       title: "you need to go to the mall",
       desc: "you need to got to the market to get this job done3",
     },
-  ];
+  ]);
   return (
     <>
       <Header title="my to do list" searchBar={false} />
