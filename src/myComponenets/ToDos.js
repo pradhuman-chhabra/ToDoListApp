@@ -5,7 +5,7 @@ import { ToDoItem } from "./ToDoItem";
 export const ToDos = (props) => {
   return (
     <div className="container">
-      <h3 className="text-center my-3">ToDos List</h3>
+      <h3 className=" my-3">ToDos List</h3>
       {/* this classname makes the things center aligned */}
       {/* my-3 gives it a margin */}
       {/* <ToDoItem todo={props.todos[0]}/> */}

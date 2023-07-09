@@ -5,6 +5,7 @@ import { ToDos } from "./myComponenets/ToDos";
 import { Footer } from "./myComponenets/Footer";
 // since this is not ecport default function then its inside curly braces
 import { useState } from "react";
+import { AddTodo } from "./myComponenets/AddTodo";
 
 function App() {
   const onDelete = (todo) => {
@@ -43,6 +44,7 @@ function App() {
   return (
     <>
       <Header title="my to do list" searchBar={false} />
+      <AddTodo />
       <ToDos todos={todos} onDelete={onDelete} />
       {/* Here i have passed the props to ToDos.js from App.js, i have passes todos and onDelete to ToDos.js */}
       {/* ToDos.js beta hai App.js ka toh woh usko props mein todos and onDelte pass kar dega,ToDos.js props mein isko store kerga aur inko jaise marji aaye use karega, ToDoItems.js, ToDos.js ka beta hai toh woh usko props dega using props or by destructuring , it will recieve todo (not ToDos, woh map function use kar rha hai todos naam ke array par aur todo return kar rhai , wohi pass ho rha hai) and onDelete and finally it will use the onDelete on onClick event*/}
