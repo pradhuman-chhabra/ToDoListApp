@@ -1,44 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const AddTodo = () => {
+export const AddTodo = ({ addTodo }) => {
+  // here we have imported addTodo using desctructuring {addTodo} we could have imported them as props also
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  // we will be using the useState hooks (mind you useState is a variable)
+  const submit = (e) => {
+    e.preventDefault();
+    // this prevent default will prevent it from reloading the page every time we press submit
+    if (!title || !desc) {
+      alert("title or description can not be blank");
+      // if title or description is empty then it will give a prompt
+    }
+    addTodo(title, desc);
+    // if they are not empty the on submit we will add the following in the
+  };
   return (
     // <div className="container text-center my-3"> text-center will center aligny my text its a bootstrap class
 
     <div className="container my-3">
       <h3>Add a To Do</h3>
-      <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Email address
+      <form onSubmit={submit}>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            ToDO Title
           </label>
           <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="form-control"
+            id="title"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
+          {/* But merely adding the value ={title will not make the form to take input we will have to take the use of eth full functionality of teh useState hook for that we will be using the onChange method , i'll be making an arrow function inside the onChange method and i'll be passing an event e and i will write setTitle and e ko kya chaiye , usko chaiye -> e.target.value*/}
+          {/* Using this useState we can update the text inside the text box */}
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Password
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            Enter Description
           </label>
           <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
+            type="text"
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
+            className="form-control"
+            id="desc"
           />
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" class="btn btn-sm btn-success">
-          Submit
+
+        <button type="submit" className="btn btn-sm btn-success">
+          Add ToDo
         </button>
       </form>
     </div>

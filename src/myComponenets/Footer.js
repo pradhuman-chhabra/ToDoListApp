@@ -1,10 +1,11 @@
 import React from "react";
-import"./footer.css"
+import "./footer.css";
 
 export const Footer = () => {
   let footerSyle = {
-    position: "absolute",
-    top: "100vh",
+    position: "relative",
+    // position:"Absolute" make it relative
+    top: "70vh",
     width: "100%",
     backgroundColour: "red",
     border: "10px solid grey",
